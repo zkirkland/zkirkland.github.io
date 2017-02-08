@@ -1,0 +1,38 @@
+form {
+    padding: 40px 40px 40px 20px;
+    width: 700px;
+}
+
+div input, div textarea {
+    background: lightgray;
+    border: none;
+}
+
+div input, div textarea, div button {
+    color: darkslategray;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#subjectIn {
+    float: left;
+    height: 25px;
+    width: calc(86% / 2);
+}
+
+#emailIn {
+    height: 25px;
+    width: calc(86% / 2);
+}
+
+#messageIn {
+    text-align: left;
+    height: 400px;
+    width: 100%;
+}
+
+#submitBtn {
+    width: 25%;
+    height: 40px;
+}

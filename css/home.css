@@ -1,0 +1,45 @@
+div.label {
+    position: relative;
+    font-size: 22px;
+    background: transparent;
+    padding: 30px;
+}
+
+div.paragraph {
+    font-size: 16px;
+    padding: 0px 30px 20px 30px;
+}
+
+ul.languageList {
+    float: left;
+    padding: 0px 0px 10px 40px;
+    width: 100px;
+}
+
+#thoughtTicker {
+    color: white;
+    clear: both;
+    height: 25%;
+}
+
+#summary {
+    color: white;
+    float: left;
+    height: 200px;
+    width: 50%;
+    background: cornflowerblue;
+}
+
+#languages {
+    color: white;
+    float: left;
+    height: 200px;
+    width: 50%;
+    background: cadetblue;
+}
+
+#experience {
+    color: white;
+    float: left;
+    width: 100%;
+}

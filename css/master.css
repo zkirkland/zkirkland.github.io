@@ -1,7 +1,60 @@
-h1, h2 {
-    font-family: Arial, sans-serif;
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding: 0px;
+    margin: 0px;
 }
 
-div {
-    font-family: monospace;
+body {
+    background: darkslategray;
+}
+
+h1 {
+    padding: 50px 0px 0px 30px;
+    color: white;
+}
+
+.navigation {
+    padding-left: 20px;
+    text-align: left;
+    list-style-type: none;
+}
+
+#grayBar {
+    padding: 0px;
+    height: 45px;
+    background: gray;
+}
+
+.navigation li {
+    display: inline-block;
+    padding: 20px 40px 5px 40px;
+    margin: 0px -4px 0px 0px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transition: color .5s;
+}
+
+    .navigation li:hover {
+        color: lightgray;
+    }
+    
+#activeItem {
+    color: white;
+    border-radius: 0px 0px 10px 10px;
+    background: cadetblue;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    height: 45px;
+}
+
+#foot {
+    text-align: center;
+    color: gray;
+    font-size: 14px;
+    padding-left: 30px;
+}
+
+#foot div {
+    float: left;
 }
