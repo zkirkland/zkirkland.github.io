@@ -1,5 +1,4 @@
 div.label {
-    position: relative;
     font-size: 22px;
     background: transparent;
     padding: 30px;
@@ -16,30 +15,28 @@ ul.languageList {
     width: 100px;
 }
 
+#home {
+    float: left;
+    width: 100%;
+}
+
 #thoughtTicker {
-    color: white;
-    clear: both;
     height: 25%;
 }
 
 #summary {
-    color: white;
     float: left;
-    height: 200px;
     width: 50%;
     background: cornflowerblue;
 }
 
 #languages {
-    color: white;
     float: left;
-    height: 200px;
     width: 50%;
     background: cadetblue;
 }
 
 #experience {
-    color: white;
     float: left;
     width: 100%;
 }

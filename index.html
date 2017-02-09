@@ -5,59 +5,110 @@
     <title>Profile of a Leader</title>
     <link rel="stylesheet" href="/css/master.css" type="text/css" charset="utf-8">
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/projects.css">
+    <link rel="stylesheet" href="/css/original.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <ul>
-    <div class="navigation" style="float: left;">
-        <li id="activeItem">Home</li>
-        <a href="/Pages/Projects.html"><li>Projects</li></a>
-        <a href="/Pages/Original.html"><li>Original Thoughts</li></a>
-        <a href="/Pages/Contact.html"><li>Contact Me</li></a>
+    <div class="navigation">
+        <li id="navHome" onclick="goToHome()" class="activeItem">Home</li>
+        <li id="navProj" onclick="goToProjects()">Projects</li>
+        <li id="navOrig" onclick="goToOriginal()">Original Thoughts</li>
+        <li id="navCont" onclick="goToContact()">Contact Me</li>
     </div>
     <div id="grayBar"></div>
 </ul>
 
-<body>
-    <div id="thoughtTicker">
-        <div class="label">Original Thought Ticker</div>
-    </div>
-    <div id="summary">
-        <div class="label">Summary</div>
-        <div class="paragraph">I am intelligent and I have a sharp wit. I learn quickly, listen well, and work hard. I am a peacemaker and a team
-            player, but I also have excellent leadership skills. I have an Associate of Science from North Central Texas
-            College. I am a dedicated family man. I am always looking for ways to make things look better, perform faster,
-            and perform more efficiently.</div>
-    </div>
-    <div id="languages">
-        <div class="label">Languages</div>
-        <ul class="languageList">
-            <li>C</li>
-            <li>C++</li>
-            <li>C#</li>
-            <li>.NET</li>
-            <li>XAML</li>
-        </ul>
-        <ul class="languageList">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-        </ul>
-        <ul class="languageList">
-            <li>Python</li>
-            <li>JSON</li>
-        </ul>
-    </div>
-    <div id="experience">
-        <div class="label">Experience</div>
-        <div class="paragraph">
-            <ul>
-
+<body id="body">
+    <div id="home">
+        <div id="thoughtTicker">
+            <div class="label">Original Thought Ticker</div>
+        </div>
+        <div id="summary">
+            <div class="label">Summary</div>
+            <div class="paragraph">I am intelligent and I have a sharp wit. I learn quickly, listen well, and work hard. I am a peacemaker and a
+                team player, but I also have excellent leadership skills. I have an Associate of Science from North Central
+                Texas College. I am a dedicated family man. I am always looking for ways to make things look better, perform
+                faster, and perform more efficiently.</div>
+        </div>
+        <div id="languages">
+            <div class="label">Languages</div>
+            <ul class="languageList">
+                <li>C</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>.NET</li>
+                <li>XAML</li>
+            </ul>
+            <ul class="languageList">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+            </ul>
+            <ul class="languageList">
+                <li>Python</li>
+                <li>JSON</li>
             </ul>
         </div>
+        <div id="experience">
+            <div class="label">Experience</div>
+            <div class="paragraph">
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="projects">
+        <div>
+            <h1>Projects with which I am involved.</h1>
+        </div>
+        <div>
+            <p>
+                This is a page that contains all of my current and past projects.
+            </p>
+        </div>
+    </div>
+    <div id="original">
+        <div>
+            <h1>Is it possible to have an original thought?</h1>
+        </div>
+        <div>
+            <p>
+                Eventually I will have a form here where a user can submit his or her "original thought". When the user presses the "submit" button, the page will submit the thought to the database and it will search the database to see if anyone has had a similar thought. The page will also eventually look online and return the top 5 google results.
+            </p>
+        </div>
+    </div>
+    <div id="contact">
+        <div>
+            <h1>Send me a message!</h1>
+            <h2 style="padding-left: 30px; color: red;">This form currently does nothing.</h2>
+        </div>
+        <form action="" method="POST" enctype="text/plain">
+            <div><input id="subjectIn" type="text" name="subject" value="" placeholder="Subject"></div>
+            <div><input id="emailIn" type="email" name="email" placeholder="E-mail"></div>
+            <div><textarea id="messageIn" name="message" placeholder="What do you need to tell me?"></textarea></div>
+            <div><input id="submitBtn" type="submit" value="Submit"></div>
+        </form>
     </div>
 </body>
-<footer id="foot">
-    <div>Copyright: Zach Kirkland</div>
-    <div>All rights reserved.</div>
-</footer>
 
 </html>
+<script>
+    function goToHome(){
+        $("#navHome").toggleClass("activeItem");
+    }
+    
+    function goToProjects() {
+        $("#navProj").toggleClass("activeItem");
+    }
+    
+    function goToOriginal() {
+        $("#navOrig").toggleClass("activeItem");
+    }
+    
+    function goToContact() {
+        $("#navCont").toggleClass("activeItem");
+    }
+</script>

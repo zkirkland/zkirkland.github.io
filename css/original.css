@@ -1,5 +1,6 @@
-p {
-    max-width: 750px;
-    font-size: 16px;
-    padding: 50px 20px 20px 30px;
+#original {
+    background: mediumpurple;
+    position: absolute;
+    left: calc(100% * 2);
+    width: 100%;
 }

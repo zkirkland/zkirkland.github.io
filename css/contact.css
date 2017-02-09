@@ -15,6 +15,13 @@ div input, div textarea, div button {
     margin: 10px;
 }
 
+#contact {
+    background: coral;
+    position: absolute;
+    left: calc(100% * 3);
+    width: 100%;
+}
+
 #subjectIn {
     float: left;
     height: 25px;

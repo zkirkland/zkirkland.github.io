@@ -11,26 +11,39 @@ body {
 
 h1 {
     padding: 50px 0px 0px 30px;
-    color: white;
+}
+
+p {
+    max-width: 750px;
+    font-size: 16px;
+    padding: 50px 20px 20px 30px;
+}
+
+footer {
+    height: 100px;
+    float: left;
+    background: gray;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 25px;
 }
 
 .navigation {
+    float: left;
     padding-left: 20px;
-    text-align: left;
-    list-style-type: none;
 }
 
 #grayBar {
     padding: 0px;
-    height: 45px;
-    background: gray;
+    height: 60px;
+    background: transparent;
 }
 
 .navigation li {
     display: inline-block;
     padding: 20px 40px 5px 40px;
     margin: 0px -4px 0px 0px;
-    color: white;
     text-align: center;
     text-decoration: none;
     transition: color .5s;
@@ -38,23 +51,17 @@ h1 {
 
     .navigation li:hover {
         color: lightgray;
+        cursor: pointer;
     }
     
-#activeItem {
+.navigation>li.activeItem {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     color: white;
     border-radius: 0px 0px 10px 10px;
     background: cadetblue;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    height: 45px;
-}
-
-#foot {
-    text-align: center;
-    color: gray;
-    font-size: 14px;
-    padding-left: 30px;
-}
-
-#foot div {
-    float: left;
+    height: 30px;
+    cursor: default;
 }
