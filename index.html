@@ -12,15 +12,15 @@
 </head>
 <ul>
     <div class="navigation">
-        <li id="navHome" onclick="goToPage('navHome', 1)" class="activeItem">Home</li>
-        <li id="navProj" onclick="goToPage('navProj', 2)">Projects</li>
-        <li id="navOrig" onclick="goToPage('navOrig', 3)">Original Thoughts</li>
-        <li id="navCont" onclick="goToPage('navCont', 4)">Contact Me</li>
+        <li id="navHome" onclick="goToPage('navHome', 'home', 1)" class="activeItem">Home</li>
+        <li id="navProj" onclick="goToPage('navProj', 'projects', 2)">Projects</li>
+        <li id="navOrig" onclick="goToPage('navOrig', 'original', 3)">Original Thoughts</li>
+        <li id="navCont" onclick="goToPage('navCont', 'contact', 4)">Contact Me</li>
     </div>
     <div id="grayBar"></div>
 </ul>
 
-<body id="body">
+<body>
     <div id="home" class="activePage">
         <div id="thoughtTicker">
             <div class="label">Original Thought Ticker</div>
@@ -29,7 +29,10 @@
             <div id="summary">
                 <div class="label">Summary</div>
                 <div class="paragraph">
-                    I am intelligent and I have a sharp wit. I learn quickly, listen well, and work hard. I am a peacemaker and a team player, but I also have excellent leadership skills. I have an Associate of Science Degree from North Central Texas College. I am a dedicated family man. I am always looking for ways to make things look better, perform faster, and perform more efficiently.
+                    I am intelligent and I have a sharp wit. I learn quickly, listen well, and work hard. I am a peacemaker and a team player,
+                    but I also have excellent leadership skills. I have an Associate of Science Degree from North Central
+                    Texas College. I am a dedicated family man. I am always looking for ways to make things look better,
+                    perform faster, and perform more efficiently.
                 </div>
             </div>
             <div id="languages">
@@ -61,7 +64,7 @@
             </div>
         </div>
     </div>
-    <div id="projects">
+    <div id="projects" class="inactivePage">
         <div>
             <h1>Projects with which I am involved.</h1>
         </div>
@@ -71,17 +74,19 @@
             </p>
         </div>
     </div>
-    <div id="original">
+    <div id="original" class="inactivePage">
         <div>
             <h1>Is it possible to have an original thought?</h1>
         </div>
         <div>
             <p>
-                Eventually I will have a form here where a user can submit his or her "original thought". When the user presses the "submit" button, the page will submit the thought to the database and it will search the database to see if anyone has had a similar thought. The page will also eventually look online and return the top 5 google results.
+                Eventually I will have a form here where a user can submit his or her "original thought". When the user presses the "submit"
+                button, the page will submit the thought to the database and it will search the database to see if anyone
+                has had a similar thought. The page will also eventually look online and return the top 5 google results.
             </p>
         </div>
     </div>
-    <div id="contact">
+    <div id="contact" class="inactivePage">
         <div>
             <h1>Send me a message!</h1>
             <h2 style="padding-left: 30px; color: red;">This form currently does nothing.</h2>
@@ -97,46 +102,130 @@
 
 </html>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        var home = $("#home");
+        var projects = $("#projects");
+        var original = $("#original");
+        var contact = $("#contact");
+
+        var navHome = $("#navHome");
+        var navProj = $("#navProj");
+        var navOrig = $("#navOrig");
+        var navCont = $("#navCont");
+
         var width = $("html").width();
-        $("#home").css("width", width);
-        $("#projects").css("width", width);
-        $("#original").css("width", width);
-        $("#contact").css("width", width);
-        
-        $("#projects").css("left", (width * 1));
-        $("#original").css("left", (width * 2));
-        $("#contact").css("left", (width * 3));
+        var height = $("html").height() - 70;
+        home.css("width", width);
+        projects.css("width", width);
+        original.css("width", width);
+        contact.css("width", width);
+
+        home.css("height", height);
+        projects.css("height", height);
+        original.css("height", height);
+        contact.css("height", height);
+
+        home.css("background", "rgba(47,79,79, 1.0)");
+        projects.css("background", "rgba(0,128,0, 0.0)");
+        original.css("background", "rgba(147,112,219, 0.0)");
+        contact.css("background", "rgba(255,127,80, 0.0)");
+
+        home.css("opacity", 1.0);
+        projects.css("opacity", 0.0);
+        original.css("opacity", 0.0);
+        contact.css("opacity", 0.0);
+
+        projects.css("visibility", "collapse");
+        original.css("visibility", "collapse");
+        contact.css("visibility", "collapse");
+
+        navHome.css("background", "rgba(47,79,79, 1.0)");
+        navProj.css("background", "rgba(0,128,0, 0.0)");
+        navOrig.css("background", "rgba(147,112,219, 0.0)");
+        navCont.css("background", "rgba(255,127,80, 0.0)");
     });
-    
-    function goToPage(str, newPage){
-        if( typeof goToPage.currentPage == 'undefined')
-        {
+
+    function goToPage(str, pageName, newPage) {
+        var page = $(pageName);
+        var home = $("#home");
+        var projects = $("#projects");
+        var original = $("#original");
+        var contact = $("#contact");
+
+        var navHome = $("#navHome");
+        var navProj = $("#navProj");
+        var navOrig = $("#navOrig");
+        var navCont = $("#navCont");
+
+        if (typeof goToPage.currentPage == 'undefined') {
             goToPage.currentPage = 1;
         }
-        
-        if(goToPage.currentPage !== newPage)
-        {
+
+        if (goToPage.currentPage !== newPage) {
             $(".navigation>li").removeClass("activeItem");
+            $(".navigation>li").css("background", "transparent");
+
+            home.removeClass("activePage");
+            projects.removeClass("activePage");
+            original.removeClass("activePage");
+            contact.removeClass("activePage");
+
             $("#" + str).addClass("activeItem");
-            
-            var diff = goToPage.currentPage - newPage;
-            var pageWidth = $("html").width();
-            var move = pageWidth * diff;
-            
-            var pos = move + parseInt($("#home").css("margin-left"));
-            $("#home").css("margin-left", pos);
-            
-            pos = move + parseInt($("#projects").css("margin-left"));
-            $("#projects").css("margin-left", pos);
-            
-            pos = move + parseInt($("#original").css("margin-left"));
-            $("#original").css("margin-left", pos);
-            
-            pos = move + parseInt($("#contact").css("margin-left"));
-            $("#contact").css("margin-left", pos);
-            
+
+            switch (str) {
+                case "navHome":
+                    navHome.css("background", "rgba(47,79,79, 1.0)");
+                    home.css("opacity", 1.0);
+                    home.css("visibility", "visible");
+                    original.css("opacity", 0.0);
+                    original.css("visibility", "collapse");
+                    contact.css("opacity", 0.0);
+                    contact.css("visibility", "collapse");
+                    projects.css("opacity", 0.0);
+                    projects.css("visibility", "collapse");
+                    break;
+                case "navProj":
+                    navProj.css("background", "rgba(0,128,0, 1.0)");
+                    home.css("opacity", 0.0);
+                    home.css("visibility", "collapse");
+                    original.css("opacity", 0.0);
+                    original.css("visibility", "collapse");
+                    contact.css("opacity", 0.0);
+                    contact.css("visibility", "collapse");
+                    projects.css("background", "rgba(0,128,0, 1.0)");
+                    projects.css("opacity", 1);
+                    projects.css("visibility", "visible");
+                    break;
+                case "navOrig":
+                    navOrig.css("background", "rgba(147,112,219, 1.0)");
+                    home.css("opacity", 0.0);
+                    home.css("visibility", "collapse");
+                    projects.css("opacity", 0.0);
+                    projects.css("visibility", "collapse");
+                    contact.css("opacity", 0.0);
+                    contact.css("visibility", "collapse");
+                    original.css("background", "rgba(147,112,219, 1.0)");
+                    original.css("opacity", 1);
+                    original.css("visibility", "visible");
+                    break;
+                case "navCont":
+                    navCont.css("background", "rgba(255,127,80, 1.0)");
+                    home.css("opacity", 0.0);
+                    home.css("visibility", "collapse");
+                    projects.css("opacity", 0.0);
+                    projects.css("visibility", "collapse");
+                    original.css("opacity", 0.0);
+                    original.css("visibility", "collapse");
+                    contact.css("background", "rgba(255,127,80, 1.0)");
+                    contact.css("opacity", 1);
+                    contact.css("visibility", "visible");
+                    break;
+                default:
+                    break;
+            }
+
             goToPage.currentPage = newPage;
         }
     }
+
 </script>

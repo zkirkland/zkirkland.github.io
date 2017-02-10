@@ -5,10 +5,9 @@
     margin: 0px;
 }
 
-#body {
-    float: left;
+html {
+    background: slategray;
     overflow-x: hidden;
-    background: darkslategray;
 }
 
 h1 {
@@ -33,8 +32,8 @@ footer {
 
 #grayBar {
     padding: 0px;
-    height: 60px;
-    background: transparent;
+    height: 55px;
+    background: slategray;
 }
 
 .navigation li {
@@ -44,17 +43,11 @@ footer {
     margin: 0px 1px 0px 1px;
     text-align: center;
     text-decoration: none;
-    border-style: solid;
-    border-width: 0px 1px 1px 1px;
-    border-color: transparent;
-    transition: border .5s, box-shadow .5s, background .5s;
+    transition: background .5s;
     height: 30px;
 }
 
 .navigation li:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
@@ -63,13 +56,8 @@ footer {
     -webkit-user-select: none;
     user-select: none;
     color: white;
-    background: rgba(255, 255, 255, 0.05);
     height: 30px;
     cursor: default;
-    border-style: solid;
-    border-width: 0px 1px 1px 1px;
-    border-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
     margin: 0px 1px 0px 1px;
 }
 
@@ -78,14 +66,14 @@ footer {
 }
 
 #navProj {
-    left: calc((100% / 8) - 85px);
+    left: 155px;
 }
 
 #navOrig {
-    left: calc((100% / 8) + 55px);
+    left: 295px;
 }
 
 #navCont {
-    left: calc((100% / 8) + 262px);
+    left: 502px;
 }
 

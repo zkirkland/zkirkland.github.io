@@ -18,6 +18,7 @@ div input, div textarea, div button {
 #contact {
     background: coral;
     position: absolute;
+    transition: background 0.5s, opacity 0.5s;
 }
 
 #subjectIn {

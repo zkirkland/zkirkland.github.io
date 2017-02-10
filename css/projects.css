@@ -2,4 +2,5 @@
     background: green;
     position: absolute;
     width: 100%;
+    transition: background 0.5s, opacity 0.5s;
 }
