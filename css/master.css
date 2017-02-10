@@ -5,7 +5,9 @@
     margin: 0px;
 }
 
-body {
+#body {
+    float: left;
+    overflow-x: hidden;
     background: darkslategray;
 }
 
@@ -29,11 +31,6 @@ footer {
     padding-top: 25px;
 }
 
-.navigation {
-    float: left;
-    padding-left: 20px;
-}
-
 #grayBar {
     padding: 0px;
     height: 60px;
@@ -41,27 +38,54 @@ footer {
 }
 
 .navigation li {
+    position: absolute;
     display: inline-block;
     padding: 20px 40px 5px 40px;
-    margin: 0px -4px 0px 0px;
+    margin: 0px 1px 0px 1px;
     text-align: center;
     text-decoration: none;
-    transition: color .5s;
+    border-style: solid;
+    border-width: 0px 1px 1px 1px;
+    border-color: transparent;
+    transition: border .5s, box-shadow .5s, background .5s;
+    height: 30px;
 }
 
-    .navigation li:hover {
-        color: lightgray;
-        cursor: pointer;
-    }
-    
+.navigation li:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
 .navigation>li.activeItem {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
     color: white;
-    border-radius: 0px 0px 10px 10px;
-    background: cadetblue;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.05);
     height: 30px;
     cursor: default;
+    border-style: solid;
+    border-width: 0px 1px 1px 1px;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+    margin: 0px 1px 0px 1px;
 }
+
+#navHome {
+    left: 30px;
+}
+
+#navProj {
+    left: calc((100% / 8) - 85px);
+}
+
+#navOrig {
+    left: calc((100% / 8) + 55px);
+}
+
+#navCont {
+    left: calc((100% / 8) + 262px);
+}
+

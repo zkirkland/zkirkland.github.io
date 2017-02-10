@@ -1,6 +1,5 @@
 #projects {
     background: green;
     position: absolute;
-    left: calc(100% * 1);
     width: 100%;
 }

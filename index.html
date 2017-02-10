@@ -12,44 +12,45 @@
 </head>
 <ul>
     <div class="navigation">
-        <li id="navHome" onclick="goToHome()" class="activeItem">Home</li>
-        <li id="navProj" onclick="goToProjects()">Projects</li>
-        <li id="navOrig" onclick="goToOriginal()">Original Thoughts</li>
-        <li id="navCont" onclick="goToContact()">Contact Me</li>
+        <li id="navHome" onclick="goToPage('navHome', 1)" class="activeItem">Home</li>
+        <li id="navProj" onclick="goToPage('navProj', 2)">Projects</li>
+        <li id="navOrig" onclick="goToPage('navOrig', 3)">Original Thoughts</li>
+        <li id="navCont" onclick="goToPage('navCont', 4)">Contact Me</li>
     </div>
     <div id="grayBar"></div>
 </ul>
 
 <body id="body">
-    <div id="home">
+    <div id="home" class="activePage">
         <div id="thoughtTicker">
             <div class="label">Original Thought Ticker</div>
         </div>
-        <div id="summary">
-            <div class="label">Summary</div>
-            <div class="paragraph">I am intelligent and I have a sharp wit. I learn quickly, listen well, and work hard. I am a peacemaker and a
-                team player, but I also have excellent leadership skills. I have an Associate of Science from North Central
-                Texas College. I am a dedicated family man. I am always looking for ways to make things look better, perform
-                faster, and perform more efficiently.</div>
-        </div>
-        <div id="languages">
-            <div class="label">Languages</div>
-            <ul class="languageList">
-                <li>C</li>
-                <li>C++</li>
-                <li>C#</li>
-                <li>.NET</li>
-                <li>XAML</li>
-            </ul>
-            <ul class="languageList">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-            </ul>
-            <ul class="languageList">
-                <li>Python</li>
-                <li>JSON</li>
-            </ul>
+        <div id="info">
+            <div id="summary">
+                <div class="label">Summary</div>
+                <div class="paragraph">
+                    I am intelligent and I have a sharp wit. I learn quickly, listen well, and work hard. I am a peacemaker and a team player, but I also have excellent leadership skills. I have an Associate of Science Degree from North Central Texas College. I am a dedicated family man. I am always looking for ways to make things look better, perform faster, and perform more efficiently.
+                </div>
+            </div>
+            <div id="languages">
+                <div class="label">Languages</div>
+                <ul class="languageList">
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>C#</li>
+                    <li>.NET</li>
+                    <li>XAML</li>
+                </ul>
+                <ul class="languageList">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                </ul>
+                <ul class="languageList">
+                    <li>Python</li>
+                    <li>JSON</li>
+                </ul>
+            </div>
         </div>
         <div id="experience">
             <div class="label">Experience</div>
@@ -96,19 +97,46 @@
 
 </html>
 <script>
-    function goToHome(){
-        $("#navHome").toggleClass("activeItem");
-    }
+    $(document).ready(function() {
+        var width = $("html").width();
+        $("#home").css("width", width);
+        $("#projects").css("width", width);
+        $("#original").css("width", width);
+        $("#contact").css("width", width);
+        
+        $("#projects").css("left", (width * 1));
+        $("#original").css("left", (width * 2));
+        $("#contact").css("left", (width * 3));
+    });
     
-    function goToProjects() {
-        $("#navProj").toggleClass("activeItem");
-    }
-    
-    function goToOriginal() {
-        $("#navOrig").toggleClass("activeItem");
-    }
-    
-    function goToContact() {
-        $("#navCont").toggleClass("activeItem");
+    function goToPage(str, newPage){
+        if( typeof goToPage.currentPage == 'undefined')
+        {
+            goToPage.currentPage = 1;
+        }
+        
+        if(goToPage.currentPage !== newPage)
+        {
+            $(".navigation>li").removeClass("activeItem");
+            $("#" + str).addClass("activeItem");
+            
+            var diff = goToPage.currentPage - newPage;
+            var pageWidth = $("html").width();
+            var move = pageWidth * diff;
+            
+            var pos = move + parseInt($("#home").css("margin-left"));
+            $("#home").css("margin-left", pos);
+            
+            pos = move + parseInt($("#projects").css("margin-left"));
+            $("#projects").css("margin-left", pos);
+            
+            pos = move + parseInt($("#original").css("margin-left"));
+            $("#original").css("margin-left", pos);
+            
+            pos = move + parseInt($("#contact").css("margin-left"));
+            $("#contact").css("margin-left", pos);
+            
+            goToPage.currentPage = newPage;
+        }
     }
 </script>

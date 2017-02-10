@@ -17,7 +17,6 @@ ul.languageList {
 
 #home {
     float: left;
-    width: 100%;
 }
 
 #thoughtTicker {
@@ -26,6 +25,7 @@ ul.languageList {
 
 #summary {
     float: left;
+    min-height: 200px;
     width: 50%;
     background: cornflowerblue;
 }
@@ -33,6 +33,7 @@ ul.languageList {
 #languages {
     float: left;
     width: 50%;
+    min-height: 200px;
     background: cadetblue;
 }
 
